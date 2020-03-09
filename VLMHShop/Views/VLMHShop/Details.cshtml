@@ -1,0 +1,72 @@
+﻿<style type="text/css">
+    #Datmua a{
+        clear:both; background-color:red;
+        color:white;width:120px;height:35px;
+        display:block;float:right;text-align:center;
+        padding-top:10px; text-decoration:none; font-weight:bold;
+    }
+    #Datmua a:hover{
+        background-color:gray;
+        color:red;
+    }
+</style>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+@*}
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+<ul class="breadcrumb">
+    <li><a href="@Url.Action("Index", "VLMHShop")">HOME</a> <span class="divider">/</span></li>
+    <li class="active">Details</li>
+</ul>
+<div>
+    <div style="width:40%;float:left;border-left:dotted 1px;border-color:azure">
+        <img src="~/Content/themes/@Model.Anhbia" width="100%" />
+    </div>
+    <div style=" width:60px;float:left;padding:10px">
+        <h4 style="font-weight:bold;color:red">Tên sản phẩm: @Model.Tendt</h4>
+        <p style=" text-align:justify"><span style="font-weight:bold">Mô tả: </span>@Model.Mota</p>
+        <p style="font-weight:bold">Giá bán:<span style="color:red;font-size:16pt">@Model.Giaban VNĐ</span></p>
+    </div>
+    <div>
+        <div id="Datmua">
+            <a href="@Url.Action("ThemGioHang", "GioHang", new { @iMasp= @Model.Madt,@strURL=Request.Url.ToString()})" >ĐẶT MUA</a>
+        </div>
+    </div>
+</div>*@
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+<ul class="breadcrumb">
+        <li><a href="@Url.Action("Index", "VLMHShop")">Trang chủ</a> <span class="divider">/</span></li>
+        <li class="active">Chi tiết</li>
+    </ul>
+<div class="row">
+    <div id="gallery" class="span3">
+        <img src="~/Content/themes/@Model.Anhbia" />
+    </div>
+    <div class="span6">
+        <h3>@Model.Tendt</h3>
+        <hr class="soft">
+        <form class="form-horizontal qtyFrm">
+            <div class="control-group">
+                <label class="control-label"><span>@Model.Giaban VNĐ</span></label>
+                <div class="controls">
+                    <div>
+                        <div id="Datmua">
+                            <a href="@Url.Action("ThemGioHang", "GioHang", new { @iMasp= @Model.Madt,@strURL="/GioHang/GioHang"})">ĐẶT MUA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <hr class="soft">
+        <h4>Còn lại @Model.Soluongton sản phẩm </h4>
+        
+        <hr class="soft clr">
+        <p>
+            @Model.Mota
+        </p>
+    </div>
+</div>

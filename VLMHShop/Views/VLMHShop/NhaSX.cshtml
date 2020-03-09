@@ -1,0 +1,13 @@
+﻿@model IEnumerable<VLMHShop.Models.NHASX>
+<a> HÃNG SẢN XUẤT</a>
+<ul style="display:none">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a class="active" href="@Url.Action("SPTheoNSX", "VLMHShop", new { id = item.MaNSX })">
+                <i class="icon-chevron-right"></i>
+                @item.TenNSX
+            </a>
+        </li>
+    }
+</ul>

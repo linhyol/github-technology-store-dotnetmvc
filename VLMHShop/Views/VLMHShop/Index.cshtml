@@ -1,0 +1,50 @@
+﻿@using VLMHShop.Models
+@using PagedList.Mvc;
+
+
+@model PagedList.PagedList<DT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<h2>ĐÂY LÀ TRANG CHỦ</h2>
+<div class="row">
+    <ul class="thumbnails">
+        @foreach (var DT in Model)
+        {
+            <a href="@Url.Action("Details", "VLMHShop", new { id = DT.Madt })"></a>
+            <li class="span3">
+                <div class="thumbnail">
+                    <a href="@Url.Action("Details", "VLMHShop", new { id = DT.Madt })"><img src="~/Content/themes/@DT.Anhbia" width="150" height="150" /></a>
+                    <div class="caption">
+                        <h5>@DT.Tendt</h5>
+                        <h4 style="text-align:center"><a class="btn" href="@Url.Action("Details", "VLMHShop", new { id = DT.Madt })"> <i class="icon-zoom-in"></i>Chi tiết</a> <a class="btn" href="@Url.Action("ThemGioHang", "GioHang", new { @iMasp= DT.Madt,@strURL="/GioHang/GioHang"})">Thêm vào giỏ hàng <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="">@DT.Giaban <span>VND</span></a></h4>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+<div style="text-align:center">
+    <h3> Trang@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</h3>
+</div>
+
+<div class="menutrang" style="text-align:center;font-weight:bold">
+    <li>
+        <h3>@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page = Page }))</h3>
+    </li>
+</div>
+<style>
+    .menutrang li{
+        display:inline-block;
+
+    }
+    .menutrang li:hover{
+        color:red;
+    }
+</style>
+
+
+
+

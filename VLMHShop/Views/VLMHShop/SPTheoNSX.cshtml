@@ -1,0 +1,25 @@
+﻿@model IEnumerable<VLMHShop.Models.DT>
+@{
+    ViewBag.Title = "SPTheoLoai";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<h2>SẢN PHẨM THEO LOẠI</h2>
+<div class="row">
+    <ul class="thumbnails">
+        @foreach (var DT in Model)
+        {
+            <a href="@Url.Action("Index", "VLMHShop", new { id = DT.Madt })"></a>
+            <li class="span3">
+                <div class="thumbnail">
+                    <a href="@Url.Action("Details", "VLMHShop", new { id = DT.Madt })"><img src="~/Content/themes/@DT.Anhbia" width="150" height="150" /></a>
+                    <div class="caption">
+                        <h5>@DT.Tendt</h5>
+                        <h4 style="text-align:center"><a class="btn" href="@Url.Action("Details", "VLMHShop", new { id = DT.Madt })"> <i class="icon-zoom-in"></i>Chi tiết</a> <a class="btn" href="@Url.Action("ThemGioHang", "GioHang", new { @iMasp= DT.Madt,@strURL="/GioHang/GioHang"})">Thêm vào giỏ hàng <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">@DT.Giaban <p>VND</p></a></h4>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+

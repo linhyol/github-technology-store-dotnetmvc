@@ -1,0 +1,13 @@
+﻿@model IEnumerable<VLMHShop.Models.LOAI>
+<a> LOẠI</a>
+<ul style="display:none">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a class="active" href="@Url.Action("SPTheoLoai", "VLMHShop", new { id = item.MaLoai })">
+                <i class="icon-chevron-right"></i>
+                @item.TenLoai
+            </a>
+        </li>
+    }
+</ul>
